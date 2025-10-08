@@ -3,7 +3,7 @@ const Footer = () => {
     <>
       <footer className="bg-green-100">
         <div>
-          <small>&copy; ~ 2023</small>
+          <small>&copy; Misaki Ouchi 2025</small>
         </div>
       </footer>
     </>
