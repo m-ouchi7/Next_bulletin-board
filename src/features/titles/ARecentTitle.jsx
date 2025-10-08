@@ -1,6 +1,7 @@
+'use client'
 import Link from 'next/link'
 import useFetch from '@/features/hooks/getAPI/useFetch'
-import useOmitTimeFunc from "@/features/hooks/getTime/useOmitTimeFunc"
+import omitTime from "@/features/hooks/getTime/omitTime"
 
 export default function ARecentTitle({ recentData }) {
   const comment_recent = useFetch(`/comments/title_id/${recentData.title_id}/recent`)
@@ -20,12 +21,13 @@ export default function ARecentTitle({ recentData }) {
   postUser = postUser.data[0].user_name
 
   // 更新年月日同じ場合は省略
-  let date
+  let dateSource
   if (comment_recent.data.length > 0) {
-    date = useOmitTimeFunc(comment_recent.data[0].created_at)
+    dateSource = comment_recent.data[0].created_at
   } else {
-    date = useOmitTimeFunc(title.created_at)
+    dateSource = title.created_at
   }
+  const date = omitTime(dateSource)
 
   return (
     <>
@@ -33,14 +35,14 @@ export default function ARecentTitle({ recentData }) {
         {title.title_name}
       </Link>
       <Link
-        href={`/SomeCategory/${category.category_id}`}
+        href={`/SomeCategory/${category?.category_id ?? ''}`}
         className='ml-1 text-xs text-blue-600'
       >
-        {category.category_name}
+        {category?.category_name ?? 'カテゴリ不明'}
       </Link>
       <div className='flex justify-between'>
         <p className='w-[90%] text-sm'>
-          {title.outline}
+          {title.outline ?? ''}
         </p>
           <span
             className='text-[0.7rem]'

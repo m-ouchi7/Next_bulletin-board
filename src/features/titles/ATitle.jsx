@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import useFetch from '@/features/hooks/getAPI/useFetch'
-import useOmitTimeFunc from "@/features/hooks/getTime/useOmitTimeFunc"
+import useOmitTimeFunc from "@/features/hooks/getTime/omitTime"
 import RecentPostUser from "@/features/users/RecentPostUser"
 
 export default function ATitle({ title, category }) {
