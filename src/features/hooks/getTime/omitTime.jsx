@@ -1,8 +1,10 @@
 import { useCallback } from "react"
 import useTimeFunc from "./useTimeFunc"
 
-const useOmitTimeFunc = (compareTime) => {
+const omitTime = (compareTime) => {
   const dt = useTimeFunc()
+  if (!dt || !compareTime) return ''
+
   let data
 
   // 年
@@ -46,4 +48,4 @@ const useOmitTimeFunc = (compareTime) => {
   return data
 }
 
-export default useOmitTimeFunc
+export default omitTime
