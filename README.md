@@ -112,15 +112,6 @@
 
 ### コンテナの作成と起動
 
-.env
-NEXT_PUBLIC_URL=http://localhost:3000<br >
-MYSQL_HOST=localhost<br >
-MYSQL_PORT=3306<br >
-MYSQL_DATABASE=bulletinboard_next<br >
-MYSQL_USER=root<br >
-MYSQL_PASSWORD=rootroot
-
-
 .env ファイルを作成後、以下のコマンドで開発環境を構築
 
 npm run dev
@@ -159,3 +150,4 @@ npm run dev
 | ------------------ | ---------- | ------------------------------ |
 | category_id        | integer    | null: false, unique: true      |
 | category_name      | string     | null: false                    |
+
