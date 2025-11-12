@@ -1,20 +1,18 @@
 ## 概要
 
-- Next.jsを用いたコメント投稿ができる掲示板サイトです
-  - 登録済みユーザのみ閲覧可能です
-  - カテゴリ登録&トピック作成後、その投稿内容についてコメントできます
-- 制作時間：約220時間
+Next.jsを用いたコメント投稿ができる掲示板サイトです
+- 登録済みユーザのみ閲覧可能です
+- カテゴリ登録&トピック作成後、その投稿内容についてコメントできます
 
 
 ## 環境
 
 | 言語・フレームワーク  | バージョン |
 | --------------------- | ---------- |
-| MySQL2                 | 3.6.3        |
-| axios                 | 1.6.0        |
 | Node.js               | 18.17.0    |
 | Next.js                 | 14.0.1     |
 | Next Auth                 | 4.24.4     |
+| axios                 | 1.6.0        |
 | npm             |  9.6.7      |
 | Tailwind CSS             |  3.3.5      |
 | TypeScript             |  4.3.5      |
@@ -71,7 +69,7 @@
 
 
 ## ディレクトリ構成
-<pre>
+```
 .
 ├── .env.local
 ├── .eslintrc.json
@@ -105,21 +103,20 @@
 |   ├── configs
 |   └── typeGuards.ts
 └── yarn.lock
-</pre>
+```
 
 
 ## 開発環境構築
 
-### コンテナの作成と起動
-
 .env ファイルを作成後、以下のコマンドで開発環境を構築
-
+```
 npm run dev
-
+```
 
 ## データベース設計
 
 ### usersテーブル
+
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | user_id            | integer    | null: false, unique: true      |
@@ -128,6 +125,7 @@ npm run dev
 | password           | string     | null: false                    |
 
 ### titlesテーブル
+
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | title_id           | integer    | null: false, unique: true      |
@@ -137,17 +135,20 @@ npm run dev
 | outline            | string     | null: false                    |
 
 ### commentsテーブル
+
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | comment_id         | integer    | null: false, unique: true      |
 | title_id           | integer    | null: false                    |
 | user_id            | integer    | null: false                    |
 | comment_content    | string     | null: false                    |
-| created_at         | string     | null: false                    |
+| created_at         | timestamp  | null: false                    |
 
 ### categoriesテーブル
+
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | category_id        | integer    | null: false, unique: true      |
 | category_name      | string     | null: false                    |
+
 
